@@ -1,9 +1,15 @@
 ---
 name: muxer-work-ticket
-description: Implement a refined Linear Todo issue for the Muxer Swift app using repo conventions, focused tests, and optional subagents when explicitly requested. Use when the user asks to work a Muxer ticket such as "Work MUX-123" or "Work MUX-123 using agents".
+description: Implement a refined Linear Todo issue for the Muxer Swift app using repo conventions, focused tests, caveman full communication, developer-profile implementation standards, and cavecrew subagents when explicitly requested. Use when the user asks to work a Muxer ticket such as "Work MUX-123" or "Work MUX-123 using agents".
 ---
 
 # Muxer Work Ticket
+
+## Required Skill Modes
+
+- Use `caveman` at `full` intensity 
+- Use `developer-profile` for implementation.
+- Use `cavecrew` only when the user explicitly asks for agents, delegation, subagents, or parallel work.
 
 ## Preconditions
 
@@ -66,7 +72,9 @@ Skills do not automatically create agents. Only spawn subagents when the user ex
 
 When agents are allowed:
 
-- Use explorers for bounded code mapping/ambiguity checks, workers only for owned file/module sets, and reviewers for independent diff review.
+- Use `cavecrew-investigator` for bounded code mapping, call-site searches, and ambiguity checks.
+- Use `cavecrew-builder` only for surgical edits with obvious scope and no more than two owned files.
+- Use `cavecrew-reviewer` for independent diff review before handoff.
 - Do not assign overlapping write scopes. Main agent owns planning, integration, validation, and final summary.
 - Close out agent findings: address them, explain why out of scope, or note residual risk.
 
