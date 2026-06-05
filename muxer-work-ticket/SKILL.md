@@ -22,12 +22,13 @@ description: Implement a refined Linear Todo issue for the Muxer Swift app using
 1. Confirm the ticket contract: behavior, acceptance criteria, likely files/modules, and test expectations.
 2. If Linear tools are available and the issue is ready, move it to `In Progress`.
 3. Check git state, worktree, and index; protect unrelated user changes.
-4. Inspect the smallest relevant code paths, then implement the smallest change that matches existing Muxer patterns.
-5. Add/update focused tests where behavior can be tested directly.
-6. Run targeted validation when practical. Use Pedro's iPhone first when available; do not try a simulator first. Replace only `<TestSuiteName>`:
+4. Find any relevant skills in the project skills and use them to guide implementation.
+5. Inspect the smallest relevant code paths, then implement the smallest change that matches existing Muxer patterns.
+6. Add/update focused tests where behavior can be tested directly.
+7. Run targeted validation when practical. Use Pedro's iPhone first when available; do not try a simulator first. Replace only `<TestSuiteName>`:
    `xcodebuild test -project Muxer.xcodeproj -scheme Muxer -destination 'id=00008130-001244D23C53803A' -only-testing:MuxerTests/<TestSuiteName> -derivedDataPath /private/tmp/MuxerDerivedDataDevice -allowProvisioningUpdates`
-7. Review the diff for acceptance coverage, Swift style, broad rewrites, edge cases, and weak/missing tests.
-8. If Linear tools are available, add a concise implementation note and move the issue to `In Review`.
+8. Review the diff for acceptance coverage, Swift style, broad rewrites, edge cases, and weak/missing tests.
+9. If Linear tools are available, add a concise implementation note and move the issue to `In Review`.
 
 Do not commit, push, or move the issue to `Done` until the user explicitly says they are happy with the change or otherwise approves finalization.
 
