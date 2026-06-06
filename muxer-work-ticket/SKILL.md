@@ -25,8 +25,7 @@ description: Implement a refined Linear Todo issue for the Muxer Swift app using
 4. Find any relevant skills in the project skills and use them to guide implementation.
 5. Inspect the smallest relevant code paths, then implement the smallest change that matches existing Muxer patterns.
 6. Add/update focused tests where behavior can be tested directly.
-7. Run targeted validation when practical. Use Pedro's iPhone first when available; do not try a simulator first. Replace only `<TestSuiteName>`:
-   `xcodebuild test -project Muxer.xcodeproj -scheme Muxer -destination 'id=00008130-001244D23C53803A' -only-testing:MuxerTests/<TestSuiteName> -derivedDataPath /private/tmp/MuxerDerivedDataDevice -allowProvisioningUpdates`
+7. Run targeted validation when practical.
 8. Review the diff for acceptance coverage, Swift style, broad rewrites, edge cases, and weak/missing tests.
 9. If Linear tools are available, add a concise implementation note and move the issue to `In Review`.
 
