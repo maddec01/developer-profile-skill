@@ -2,18 +2,18 @@
 
 A Linear.app-inspired dark theme for Zed.
 
-The UI palette follows Linear's dark product aesthetic: dark app chrome, slightly lighter editor/content surfaces, subtle dividers, muted gray text, and a restrained purple/indigo accent. Syntax highlighting is tuned toward Linear's app-style code previews:
+The UI palette follows Linear's dark product aesthetic: dark app chrome, slightly lighter editor/content surfaces, subtle dividers, muted gray text, and a restrained purple/indigo accent. Syntax highlighting uses a quiet, theme-native palette with grays for secondary code and muted accent colors for structure:
 
 | Token | Color |
 | --- | --- |
 | Text/variable | `#DADCE0` |
+| Secondary syntax | `#AEB4BE` |
 | Comment | `#7F8793` |
-| String | `#55CDFF` |
-| Type/constant | `#FF8A4C` |
-| Keyword/operator | `#D98DE2` |
-| Function/entity | `#77DCC4` |
-| Label/attribute | `#FFDF9F` |
-| Punctuation | `#C8CDD4` |
+| String | `#7FC7E6` |
+| Type/constant | `#D6A681` |
+| Keyword/special | `#C89BE8` |
+| Function/title | `#9FAEFA` |
+| Punctuation | `#A0A8B3` |
 
 ## Install locally
 
