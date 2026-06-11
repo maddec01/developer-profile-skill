@@ -14,7 +14,7 @@ description: Implement a refined Linear Todo issue for the Muxer Swift app using
 ## Preconditions
 
 - Read `AGENTS.md` in the repo root first.
-- Read the Linear issue, comments, acceptance criteria, and status. Prefer `Todo`; refine vague or `Backlog` issues first, or report the blocker.
+- Read the Linear issue, comments, acceptance criteria, and status. If the issue is part of a Linear Project, also read the project description for context. Prefer `Todo`; refine vague or `Backlog` issues first, or report the blocker.
 - Solo workflow by default: use the current git state, do not change checkout, and do not open a PR unless asked.
 
 ## Workflow
