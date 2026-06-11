@@ -162,7 +162,7 @@
         ],
         "syntax": {
           "attribute": {
-            "color": "#C8CDD4",
+            "color": "#D2D7DE",
             "font_style": null,
             "font_weight": null
           },
@@ -237,7 +237,7 @@
             "font_weight": null
           },
           "link_uri": {
-            "color": "#9FAEFA",
+            "color": "#D2D7DE",
             "font_style": null,
             "font_weight": null
           },
@@ -267,7 +267,7 @@
             "font_weight": null
           },
           "property": {
-            "color": "#C8CDD4",
+            "color": "#DADCE0",
             "font_style": null,
             "font_weight": null
           },
@@ -282,12 +282,12 @@
             "font_weight": null
           },
           "punctuation.delimiter": {
-            "color": "#A0A8B3",
+            "color": "#8B93A1",
             "font_style": null,
             "font_weight": null
           },
           "punctuation.list_marker": {
-            "color": "#A0A8B3",
+            "color": "#8B93A1",
             "font_style": null,
             "font_weight": null
           },
@@ -324,7 +324,7 @@
           "tag": {
             "color": "#9FAEFA",
             "font_style": null,
-            "font_weight": 600
+            "font_weight": null
           },
           "text.literal": {
             "color": "#89D196",
@@ -352,7 +352,7 @@
             "font_weight": null
           },
           "variable.parameter": {
-            "color": "#DADCE0",
+            "color": "#D2D7DE",
             "font_style": null,
             "font_weight": null
           },
