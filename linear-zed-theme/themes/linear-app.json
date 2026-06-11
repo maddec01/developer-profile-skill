@@ -177,17 +177,17 @@
             "font_weight": null
           },
           "constant": {
-            "color": "#D6A681",
+            "color": "#FFDF9F",
             "font_style": null,
             "font_weight": null
           },
           "constant.builtin": {
-            "color": "#D6A681",
+            "color": "#FFDF9F",
             "font_style": null,
             "font_weight": 600
           },
           "constructor": {
-            "color": "#D6A681",
+            "color": "#FFDF9F",
             "font_style": null,
             "font_weight": 600
           },
@@ -247,12 +247,12 @@
             "font_weight": 600
           },
           "module": {
-            "color": "#D6A681",
+            "color": "#FFDF9F",
             "font_style": null,
             "font_weight": null
           },
           "namespace": {
-            "color": "#D6A681",
+            "color": "#FFDF9F",
             "font_style": null,
             "font_weight": null
           },
@@ -302,7 +302,7 @@
             "font_weight": null
           },
           "string.escape": {
-            "color": "#D6A681",
+            "color": "#FFDF9F",
             "font_style": null,
             "font_weight": null
           },
@@ -322,7 +322,7 @@
             "font_weight": null
           },
           "tag": {
-            "color": "#D6A681",
+            "color": "#FFDF9F",
             "font_style": null,
             "font_weight": 600
           },
@@ -337,12 +337,12 @@
             "font_weight": 600
           },
           "type": {
-            "color": "#D6A681",
+            "color": "#FFDF9F",
             "font_style": null,
             "font_weight": 600
           },
           "type.builtin": {
-            "color": "#D6A681",
+            "color": "#FFDF9F",
             "font_style": null,
             "font_weight": 600
           },
