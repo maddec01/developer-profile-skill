@@ -297,7 +297,7 @@
             "font_weight": null
           },
           "string": {
-            "color": "#7FC7E6",
+            "color": "#89D196",
             "font_style": null,
             "font_weight": null
           },
@@ -307,17 +307,17 @@
             "font_weight": null
           },
           "string.regex": {
-            "color": "#7FC7E6",
+            "color": "#89D196",
             "font_style": null,
             "font_weight": null
           },
           "string.special": {
-            "color": "#7FC7E6",
+            "color": "#89D196",
             "font_style": null,
             "font_weight": 600
           },
           "string.special.symbol": {
-            "color": "#7FC7E6",
+            "color": "#89D196",
             "font_style": null,
             "font_weight": null
           },
@@ -327,7 +327,7 @@
             "font_weight": 600
           },
           "text.literal": {
-            "color": "#7FC7E6",
+            "color": "#89D196",
             "font_style": null,
             "font_weight": null
           },

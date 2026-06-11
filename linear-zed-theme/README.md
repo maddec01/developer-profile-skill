@@ -9,7 +9,7 @@ The UI palette follows Linear's dark product aesthetic: dark app chrome, slightl
 | Text/variable | `#DADCE0` |
 | Secondary syntax | `#AEB4BE` |
 | Comment | `#7F8793` |
-| String | `#7FC7E6` |
+| String | `#89D196` |
 | Type/constant | `#FFDF9F` |
 | Keyword/special | `#C89BE8` |
 | Function/title | `#9FAEFA` |
