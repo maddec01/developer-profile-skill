@@ -7,14 +7,14 @@ description: Balance Claude and Codex CLI workers for implementation and indepen
 
 Orchestrator/final reviewer = selected chat model. Apply [developer-profile](../developer-profile/SKILL.md). Workers implement/fix; no recursive delegation.
 
-Optimize total work to verified completion, including handoffs, reviews, and retries. Self-contained per task; no persistent tracking, benchmarks, or user reporting.
+Optimize elapsed time to verified completion, including startup, handoffs, reviews, and retries. Self-contained; no persistent tracking, benchmarks, or user reporting.
 
-- Route each implementer/reviewer: prefer smaller known-capable models and lower supported effort for bounded, routine work. Use stronger models upfront for concrete complexity/risk; never default to flagship or maximum effort. No live pricing/quota/usage queries, fixed model names, or provider stereotypes.
+- Route each implementer/reviewer: prefer fast, smaller capable models and lower effort for routine work. Start stronger for concrete complexity/risk that would otherwise cause retries. No default flagship/maximum effort, fixed model names, provider stereotypes, or live pricing/quota/usage queries.
 - Balance workload using this task's assignments and rough task size. When equally suitable, choose the less-loaded provider; prefer cross-provider review. Use both when qualified, without duplicate work or sacrificing task fit. Disclose fallback.
 - Escalate model and/or effort only for the affected assignment when ambiguity, risk, or failed checks justify it; fix scope/context/tool problems first. Any supported effort, including future levels, remains eligible. Briefly state provider/model/effort and selection reason.
-- Dispatch: preserve baseline changes. Keep coupled work together; split only for useful specialization or parallelism. Give each worker a verifiable outcome; avoid mixed-complexity overload and trivial fragmentation. Supply scope, owned files, acceptance checks, applicable instructions, relevant context only. Parallelize independent/disjoint work; serialize conflicts. Resume implementer with deltas for fixes. Return files/checks/risks.
-- Simple task: one implementer, one reviewer. Review all changes independently; one fresh read-only reviewer may cover several related workers and their interactions. Inspect diff/source against requirements, regressions, profile, tests; actionable file/line findings. Size review to risk; fix and re-review affected scope. After two failed repairs, reassess approach/model/provider; surface blockers.
-- Final: orchestrator inspects combined diff, resolves findings, verifies integration checks. Delegate/re-review further edits. Report validation/limitations; verify worker claims.
+- Dispatch promptly after minimal scoping. For bounded work, one implementer owns discovery, edits, and targeted checks; no separate planning/discovery worker. Split only when specialization or parallelism saves more time than startup/context/handoffs. Keep coupled work together; parallelize independent/disjoint assignments. Pass baseline, scope, owned files, acceptance checks, instructions, and relevant context. Resume workers for fixes; return concise files/checks/risks.
+- Review all changes with independent read-only workers, grouping related changes. Review stable completed changesets while unrelated work continues; re-review later modifications. Supply exact diff, relevant source, and check evidence to avoid rediscovery. Report actionable findings; size effort to risk. Reuse reviewer context for follow-ups. After two failed repairs, reassess approach/model/provider.
+- Final: orchestrator inspects combined diff for acceptance and integration risks; resolves findings. Verify existing check evidence; rerun only for changed code, gaps, failures, or integration risk. Delegate/re-review further edits. Report validation/limitations. Avoid duplicating worker investigation or review.
 
 Run chosen CLI from assignment workspace; prompt via file:
 
@@ -23,4 +23,4 @@ claude -p --model "$model" --effort "$effort" --output-format json < "$prompt" >
 codex exec -m "$model" -c "model_reasoning_effort=\"$effort\"" --json - < "$prompt" > "$result"
 ```
 
-Check CLI help and supported effort. Role-scoped permissions; no bypass. Check exit status, JSON/JSONL errors/denials; explicitly reroute unavailable models/providers. Logs outside source tree; summarize evidence.
+Use known supported CLI options/effort; consult help only for uncertainty or errors. Role-scoped permissions; no bypass. Check exit status and JSON/JSONL errors/denials; disclose fallback. Logs outside source tree; summarize evidence.
