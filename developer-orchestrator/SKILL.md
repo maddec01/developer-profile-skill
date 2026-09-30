@@ -1,63 +1,71 @@
 ---
 name: developer-orchestrator
-description: Orchestrate specialist Claude and Codex CLI workers through lead-planned, small implementation chunks and independent review. Use when orchestration is requested directly or through developer-profile.
+description: Orchestrate token-efficient Claude and Codex workers with cavecrew delegation, caveman-compressed handoffs, small implementation chunks, and independent review. Use when orchestration is requested directly or through developer-profile.
 ---
 
 # Developer Orchestrator
 
-The selected chat model is the engineering lead and final integrator. Apply [developer-profile](../developer-profile/SKILL.md). Workers never delegate or redesign the orchestration.
+The selected chat model is lead and final integrator. Apply [developer-profile](../developer-profile/SKILL.md), then load the available `cavecrew` and `caveman` skills. Use caveman `ultra` for orchestration prompts, worker results, progress, and final reporting unless its Auto-Clarity rules apply. Workers never delegate or redesign orchestration.
 
-Optimize elapsed time to verified completion, including startup, handoffs, reviews, and retries. Keep orchestration self-contained; do not create persistent tracking or benchmarks.
+Optimize for verified completion with minimum total tokens, then elapsed time. Do work inline when delegation plus handoff costs more than the task. No persistent tracking, benchmarks, duplicated investigation, or repeated summaries.
 
-## Baseline and authority
+## Routing
 
-- Treat the initiating chat's effort as the user's baseline signal for task difficulty and expected quality. Preserve that quality bar throughout planning, review, and final verification.
-- The lead owns decomposition, architecture, acceptance criteria, worker preset, provider, concrete model, and effort. Workers do not choose their own effort or expand their role.
-- Start reasoning-heavy workers at the baseline effort. Raise model capability or effort when ambiguity, risk, or failed checks justify it. Lower effort only for a tightly specified mechanical assignment whose decisions have already been made; this must not lower review rigor or acceptance criteria.
-- Fix unclear scope, missing context, or weak work packets before escalating a model. Escalate only the affected assignment and disclose any provider fallback.
+Prefer cavecrew whenever its bounded contract fits:
 
-## Worker presets
+- `cavecrew-investigator`: locate definitions, callers, tests, conventions, or failure evidence.
+- `cavecrew-builder`: surgical edit in one or two known files after decisions are fixed.
+- `cavecrew-reviewer`: findings-only review of a diff, branch, or file.
 
-Resolve model classes to currently available Claude or Codex models when dispatching. `Fast` means the smallest fast model known to handle the exact assignment, `balanced` means the general coding/reasoning model, and `strong` means the most capable model warranted by the risk. Prefer cross-provider review and balance equally suitable work across providers; do not query live pricing, quota, or usage.
+Use an ordinary specialist for architecture decisions or unfamiliar causal analysis, an ordinary builder for cross-cutting or three-plus-file changes, and an ordinary reviewer when rationale or alternatives matter. Require caveman `ultra` output from each. If named cavecrew presets are unavailable, give an ordinary worker the same scope and output contract.
 
-| Preset | Responsibility | Default model class | Effort rule |
-| --- | --- | --- | --- |
-| Scout | Read-only tracing of files, dependencies, conventions, or failure evidence | Fast; balanced for unfamiliar or cross-cutting code | Below baseline is allowed for bounded lookup; baseline for causal analysis |
-| Domain specialist | Make a difficult decision in one domain: frontend/UX, backend/API, data/migrations, infrastructure/tooling, security/performance, or test strategy | Balanced; strong for architectural or irreversible risk | Baseline or higher |
-| Builder | Implement one already-decided work packet without broad discovery or redesign | Fast, coding-capable | Lead-selected low effort when mechanical; otherwise baseline |
-| Test engineer | Add focused tests or execute a defined validation plan | Fast for execution; balanced for test design or failure diagnosis | Lead-selected; baseline for non-obvious coverage decisions |
-| Reviewer | Independently inspect the exact diff, relevant source, and check evidence; return only actionable findings | Balanced; strong for broad or high-risk changes | Baseline or higher, sized to change risk |
+Use only needed roles. No scout when lead already knows sites. No builder when lead can make a trivial edit cheaper. No duplicate assignments. Parallelize only independent work whose saved time exceeds added prompt and merge cost.
 
-Use only the roles the task needs. The lead handles ordinary scoping; add a scout or domain specialist only when their focused expertise removes uncertainty before implementation. A worker may wear one domain label and one preset, such as `backend builder` or `migration reviewer`.
+Use smallest known-capable model and lowest safe effort. Start reasoning-heavy work at initiating chat effort; lower only for decided mechanical work, raise only for ambiguity or risk. Fix weak scope or context before escalating. Prefer cross-provider review when equally suitable; never query live price, quota, or usage.
 
 ## Work packets
 
-The lead first resolves design choices, then turns the plan into the smallest coherent implementation chunks that can be executed with little judgment. Each packet must contain:
+Resolve design before implementation. Send only context worker cannot cheaply read from workspace. Prefer paths, symbols, and line ranges over pasted source. Never repeat skill bodies, full diffs, prior discussion, or unchanged requirements.
 
-- one observable outcome and explicit non-goals;
-- owned files or a narrow allowed area, with no concurrent overlapping writer;
-- exact behavior or interface decisions already made;
-- relevant project instructions, existing patterns to reuse, and baseline changes to preserve;
-- acceptance checks and the concise result format: files changed, checks run, and blockers or risks.
+Use this minimal packet, omitting empty fields:
 
-A builder must not invent architecture, broaden scope, or silently resolve ambiguity. If the packet requires a new design decision, it returns the blocker to the lead or specialist. Keep inherently coupled edits together, but split work that contains independent outcomes, unrelated domains, or multiple unresolved decisions. Avoid fragments so small that startup and handoff cost more than the edit.
+```text
+outcome: <one observable result>
+not: <explicit non-goals>
+own: <files or narrow area; no overlapping writer>
+decisions: <fixed behavior/interface choices>
+read: <only relevant paths, symbols, evidence>
+checks: <exact acceptance commands/behavior>
+return: <required compact contract>
+```
 
-## Execution and review
+Ordinary implementers and test workers return at most:
 
-1. Inspect enough of the full feature flow to identify decisions, dependencies, reusable code, and independent work.
-2. Use scouts or domain specialists for unresolved questions. The lead converts their conclusions into explicit builder packets.
-3. Dispatch independent packets in parallel and serialize overlapping files or dependent behavior. Resume the same builder with precise deltas for fixes.
-4. Run targeted checks per chunk. A test engineer can own mechanical test additions or validation, while the lead retains coverage decisions that affect the quality bar.
-5. Give every change independent read-only review, batching related chunks when this improves integration coverage. Supply the exact diff, relevant source, requirements, and check evidence. Send consolidated findings back for one focused repair pass; re-review material behavior changes, failed checks, or unresolved integration risks. Reassess the packet, model, or provider after two failed repairs.
-6. The lead inspects the combined diff and repaired areas, checks cross-chunk integration, and confirms the original acceptance criteria at the initiating effort's quality bar. Reuse valid check evidence; rerun checks only for changes, gaps, failures, or integration risk.
+```text
+changed: <path:line — fact>
+checks: <command — pass|fail>
+risk: <none|fact>
+```
 
-Briefly state each dispatched worker's preset, domain, provider/model, effort, and selection reason. Final reporting covers validation and limitations without repeating worker investigation.
+Specialists return `decision`, `evidence` with `path:line`, and `risk`. Cavecrew workers use their native contracts. No preamble, process narration, assignment restatement, or long logs. Exact errors only when decisive.
 
-Run the chosen CLI from the assignment workspace and pass the prompt through a file:
+## Execution
+
+1. Lead inspects minimum full feature flow needed to fix decisions, reuse existing code, and split ownership.
+2. Use `cavecrew-investigator` only for unresolved bounded locations. Convert findings directly into decided packets; do not resummarize them.
+3. Dispatch disjoint packets together. Serialize overlapping files or dependent behavior. Resume same worker for repairs with deltas only.
+4. Run targeted checks once per stable chunk. Reuse valid evidence; rerun only for changed code, failures, gaps, or integration risk.
+5. Independently review every change. Prefer `cavecrew-reviewer`; batch related stable diffs. Use a stronger ordinary reviewer only for cross-cutting behavior, security, migrations, or architectural risk.
+6. Consolidate findings into one repair pass. Re-review only material behavior changes or unresolved risk. After two failed repairs, reassess packet, model, or provider.
+7. Lead inspects combined diff and integration, then reports only outcome, validation, and limitations.
+
+If user-visible dispatch disclosure is required, batch it into one line per worker: `<role> | <provider/model> | <effort> | <reason>`. Do not narrate tool calls or repeat worker results.
+
+Run external workers from assignment workspace with prompt and result files:
 
 ```sh
 claude -p --model "$model" --effort "$effort" --output-format json < "$prompt" > "$result"
 codex exec -m "$model" -c "model_reasoning_effort=\"$effort\"" --json - < "$prompt" > "$result"
 ```
 
-Use known supported CLI options and effort levels; consult help only for uncertainty or errors. Grant role-scoped permissions without bypasses. Check exit status and JSON/JSONL errors or denials. Keep logs outside the source tree and summarize evidence.
+Use known supported options; consult help only after uncertainty or error. Grant role-scoped permissions without bypasses. Check exit status plus JSON/JSONL errors or denials. Keep logs outside source tree and retain only decisive evidence.
