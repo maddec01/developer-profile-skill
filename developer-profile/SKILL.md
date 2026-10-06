@@ -7,8 +7,6 @@ description: "Enforces my coding style: feature-first simplification; reuse/refa
 
 Use whenever implementing, refactoring, fixing, reviewing, or extending code; especially new features, behavior changes, refactors, bugs, components/services/utilities/types/tests, or unfamiliar project areas.
 
-When orchestration is requested, also load [developer-orchestrator](../developer-orchestrator/SKILL.md); the selected chat model remains the lead, while each worker's provider, model, and effort are selected by task.
-
 ## Non-negotiable principles
 
 1. Add code last. First inspect the full feature flow, then reuse, refactor, simplify, or delete existing code before creating anything new.
